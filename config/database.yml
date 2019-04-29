@@ -23,7 +23,7 @@ default: &default
 
   username: postgres
 
-  password: welcome34
+  password: password
 
   host: localhost
 
