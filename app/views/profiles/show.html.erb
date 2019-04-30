@@ -1,1 +1,11 @@
-<%= @profile %>
+<nav>
+  <div class='nav-wrapper blue'>
+    <div class='container'>
+      <% if @profile.pic.attached? %>
+      <div style="width:300px; height:auto">
+        <%= image_tag @profile.pic.variant(resize: "150x150!"), :class => 'circle' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</nav>

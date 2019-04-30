@@ -7,8 +7,7 @@
         <p><%= profile.bio %></p>
       </div>
       <div class="card-action">
-        <a href="#">This is a link</a>
-        <a href="#">This is a link</a>
+        <%= link_to "#{profile.name.capitalize}'s Profile", profile %> |  <%= link_to "Message", '#' %>
       </div>
     </div>
   </div>

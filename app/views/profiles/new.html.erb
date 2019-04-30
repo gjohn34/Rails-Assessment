@@ -3,6 +3,7 @@
 <%= simple_form_for @profile do |f| %>
   <%= f.input :name %>
   <%= f.input :bio %>
+  <%= f.file_field :pic %>
   <br>
   <%= f.button :submit %>
 <% end %>

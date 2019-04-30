@@ -14,9 +14,13 @@
       <%= render 'layouts/navbar' %>
     </header>
     <main>
-      <div class='container'>
+      <% if @profile == nil %>
+        <div class='container'>
+      <% end %>
         <%= yield %>
-      </div>
+      <% if @profile == nil %>
+        </div>
+      <% end %>
     </main>
     <%= render 'layouts/footer' %>
 </html>
