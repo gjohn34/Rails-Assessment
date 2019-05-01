@@ -11,7 +11,9 @@ main {
   flex: 1 0 auto;
 }
 
-
+div {
+  border: solid 1px black;
+}
 
 .profile-pic {
   padding-left: 100px;
@@ -24,4 +26,5 @@ main {
 .bio-box {
   width: 500px;
   min-height: 500px;
+  padding-top: 75px;
 }

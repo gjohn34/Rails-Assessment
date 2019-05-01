@@ -72,5 +72,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem "image_processing", "~> 1.9"
 gem 'cloudinary', require: false
 gem "activestorage-cloudinary-service", "~> 0.2.3"
+#friendly_ids for more user friendly urls
+gem 'friendly_id', '~> 5.2.4'
 
 #gem "mini_magick"
