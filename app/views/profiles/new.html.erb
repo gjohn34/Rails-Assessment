@@ -1,9 +1,11 @@
-<h4>New</h4>
+<div class='container'>
+  <h4>New</h4>
 
-<%= simple_form_for @profile do |f| %>
-  <%= f.input :name %>
-  <%= f.input :bio %>
-  <%= f.file_field :pic %>
-  <br>
-  <%= f.button :submit %>
-<% end %>
+  <%= simple_form_for @profile do |f| %>
+    <%= f.input :name %>
+    <%= f.input :bio %>
+    <%= f.file_field :pic %>
+    <br>
+    <%= f.button :submit %>
+  <% end %>
+</div>
