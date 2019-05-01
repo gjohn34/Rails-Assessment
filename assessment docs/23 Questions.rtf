@@ -72,6 +72,29 @@ Pros and Cons of PostgreSQL\par
 \b0 In our application, our database relationships are as follows:\par
 Each User will have 1 and only 1 Profile and each Profile can have 1 to Many attachments. \par
 When two profiles message each other, a Conversations table of the two profiles is created and each message sent between these two Profiles belongs to this Converstation between two Profiles so each Profile can have many Conversations (with different Profiles) and each conversation can have many Messages. \par
+\b 13. Describe your project\rquote s models in terms of the relationships (active record associations) they have with each other. \b0\par
+In regards to the database relations to be implemented above, we will have a number of Models associated with the application.\par
+Firstly, we will have a User Model that will handle the devise authentication and logins. This was chosen to be separate from the Profile Model as \ul\b\i\-_______________ .\ulnone\b0\i0  Once a User has created a Profile there will be a one to one relationship sharing a unique ID so \ul\b\i _____________\ulnone\b0\i0 . This Profile will have many attachments that can be recalled and viewed on a Profile show.\par
+In regards to Messages and Conversations, a Conversation Model will have one sender field and reciever field(these names are arbitrary and can be used interchangably as the code will treat them both as the same when a query is done on each Profile) and many Messages\par
+\b 14. Provide your database schema design.\par
+\ul\i DRAW.IO DOCUMENT\par
+\ulnone\i0 15. Provide User stories for your App.\par
+\ul\i USER STORIES TRELLO\par
+\ulnone\i0 16. Provide Wireframes for your App.\par
+\ul\i ADOBE X\par
+\ulnone\i0 17. Describe the way tasks are allocated and tracked in your project.\par
+\par
+18. Discuss how Agile methodology is being implemented in your project.\par
+\par
+19. Provide an overview and description of your Source control process.\par
+\par
+20. Provide an overview and description of your Testing process.\par
+\b0\i talk about test driven development \par
+\b\i0 21. Discuss and analyse requirements related to information system security.\par
+\b0\i\par
+\b\i0 22. Discuss methods you will use to protect information and data..\par
+\par
+23. Research what your legal obligations are in relation to handling user data.\b0\par
 \par
 }
  
