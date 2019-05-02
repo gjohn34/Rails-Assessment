@@ -27,7 +27,6 @@ class ProfilesController < ApplicationController
 
   def update
     # @profile.pic.attach(profile_params[:pic])
-    #@profile.images.attach(profile_params[:images])
 
 
     if @profile.update(profile_params)
@@ -47,6 +46,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:name, :bio, :pic, images: [])
+    params.require(:profile).permit(:name, :bio, :pic, photos: [])
   end
 end

@@ -14,7 +14,7 @@
   </div>
   <div class='photos'>
     <h4><%= @profile.name %>'s Photos</h4>
-    <%= link_to "Add Photo", profile_photos_path(@profile) %>
+    <%= link_to "#{@profile.name}'s Photos", profile_photos_path(@profile) %>
   </div>
   <%= link_to "Edit", edit_profile_path(@profile) %>
 
