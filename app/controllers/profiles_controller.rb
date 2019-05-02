@@ -41,6 +41,10 @@ class ProfilesController < ApplicationController
     @profile = Profile.friendly.find(params[:profile_id])
   end
 
+  def interests
+    @profile = Profile.friendly.find(params[:profile_id])
+  end
+
   private
   def set_profile
     @profile = Profile.friendly.find(params[:id])

@@ -18,10 +18,10 @@
     <div class="col s12 m6">
       <div class="bio-box">
         <h4>Interest Stuff</h4>
-        
+        <%= link_to "#{@profile.name}'s Interests", profile_interests_path(@profile) %>
       </div>
     </div>
-  </div>
+    </div>
   <div class="row">
     <div class='photos'>
       <h4><%= @profile.name %>'s Photos</h4>
