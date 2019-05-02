@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show]
+  before_action :set_profile, only: [:show, :edit, :update]
   def index
     @profiles = Profile.all
   end
@@ -20,6 +20,19 @@ class ProfilesController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    # @profile.pic.attach(profile_params[:pic])
+
+    if @profile.update(profile_params)
+      redirect_to profile_path(@profile)
+    else
+      render :edit
+    end
   end
 
   private

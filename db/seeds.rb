@@ -21,6 +21,7 @@
     bio: "I am Tom Green"
   }
 ].each do |profile|
-  resource = Profile.create!(name: profile[:name], bio: profile[:bio])
+  resource = Profile.new(name: profile[:name], bio: profile[:bio])
   resource.pic.attach(io: File.open(Rails.root.join("app", "assets", "images", "anon.png")), filename: 'anon.png', content_type: "image/png")
+  resource.save
 end

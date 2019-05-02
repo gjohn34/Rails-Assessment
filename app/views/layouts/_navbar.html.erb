@@ -1,9 +1,10 @@
 <nav>
   <div class="nav-wrapper blue">
       <div class="container">
-      <a href="#" class="brand-logo">Logo</a>
+      <%= link_to "Root Path", root_path, :class => "brand-logo" %>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="#">Log In</a></li>
+        <li><%= link_to "Create my Profile", new_profile_path %></li>
       </ul>
     </div>
   </div>
