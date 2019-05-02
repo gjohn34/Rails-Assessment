@@ -5,6 +5,7 @@ class Profile < ApplicationRecord
   # after_commit :add_default_profile_pic, on [:create, :update]
 
   has_one_attached :pic
+  has_many_attached :photos
 
   def avatar
     self.pic.variant(resize: "150x150!").processed.service_url #processed.service_url

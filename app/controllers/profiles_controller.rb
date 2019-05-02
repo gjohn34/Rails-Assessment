@@ -27,6 +27,8 @@ class ProfilesController < ApplicationController
 
   def update
     # @profile.pic.attach(profile_params[:pic])
+    #@profile.images.attach(profile_params[:images])
+
 
     if @profile.update(profile_params)
       redirect_to profile_path(@profile)
@@ -35,12 +37,16 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def photos
+    @profile = Profile.friendly.find(params[:profile_id])
+  end
+
   private
   def set_profile
     @profile = Profile.friendly.find(params[:id])
   end
 
   def profile_params
-    params.require(:profile).permit(:name, :bio, :pic)
+    params.require(:profile).permit(:name, :bio, :pic, images: [])
   end
 end
