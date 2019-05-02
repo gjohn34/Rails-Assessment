@@ -8,14 +8,25 @@
   </div>
 </div>
 <div class='container'>
-  <div class='bio-box'>
-    <h4 class='black-text'>A little about me...</h4>
-    <p class="black-text"><%= @profile.bio %></p>
+  <div class='row'>
+    <div class="col s12 m6">
+      <div class='bio-box'>
+        <h4 class='black-text'>A little about me...</h4>
+        <p class="black-text"><%= @profile.bio %></p>
+      </div>
+    </div>
+    <div class="col s12 m6">
+      <div class="bio-box">
+        <h4>Interest Stuff</h4>
+        
+      </div>
+    </div>
   </div>
-  <div class='photos'>
-    <h4><%= @profile.name %>'s Photos</h4>
-    <%= link_to "#{@profile.name}'s Photos", profile_photos_path(@profile) %>
+  <div class="row">
+    <div class='photos'>
+      <h4><%= @profile.name %>'s Photos</h4>
+      <%= link_to "#{@profile.name}'s Photos", profile_photos_path(@profile) %>
+    </div>
+    <%= link_to "Edit", edit_profile_path(@profile) %>
   </div>
-  <%= link_to "Edit", edit_profile_path(@profile) %>
-
 </div>

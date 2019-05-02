@@ -6,6 +6,7 @@ class ProfilesController < ApplicationController
 
   def new
     @profile = Profile.new
+    @interests = Interest.all
   end
 
   def create

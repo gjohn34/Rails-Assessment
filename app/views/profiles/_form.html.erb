@@ -1,14 +1,11 @@
-<%= simple_form_for @profile do |f| %>
-  <div class='row'>
+<div class='row'>
+  <%= simple_form_for @profile do |f| %>
     <div class='col s12 m6'
-    <h6>Profile Pic</h6>
-    <%= f.file_field :pic%>
-    <%= f.input :name %>
-    <%= f.input :bio %>
-    <%= f.button :submit %>
+      <h6>Profile Pic</h6>
+      <%= f.file_field :pic%>
+      <%= f.input :name %>
+      <%= f.input :bio %>
+      <%= f.button :submit %>
     </div>
-    <div class='col s12 m6'
-      <span>bio stuff</span>
-    </div>
-    <br>
-<% end %>
+  <% end %>
+</div>
