@@ -1,3 +1,4 @@
+<%= provide(:active, "container") %>
 <div class='row'>
   <% @profiles.each do |profile| %>
   <div class="col s12 m4 l4">
@@ -7,7 +8,7 @@
         <p><%= profile.bio %></p>
       </div>
       <div class="card-action">
-        <%= link_to "#{profile.name.capitalize}'s Profile", profile %> |  <%= link_to "Message", '#' %>
+        <%= link_to "#{profile.name.capitalize}'s Profile", profile %> |  <%= link_to "Message", new_profile_message_path(profile, :id => profile.id) %>
       </div>
     </div>
   </div>

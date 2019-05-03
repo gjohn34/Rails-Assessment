@@ -15,13 +15,12 @@
       <%= render 'layouts/navbar' %>
     </header>
     <main>
-      <% if @profile == nil %>
-        <div class='container'>
+      <% if @profile != nil %>
+        <%= render 'profiles/banner' %>
       <% end %>
+      <div class="<%= yield(:active) %>">
         <%= yield %>
-      <% if @profile == nil %>
-        </div>
-      <% end %>
+      </div>
     </main>
     <footer class="page-footer black">
       <%= render 'layouts/footer' %>

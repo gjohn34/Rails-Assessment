@@ -7,6 +7,7 @@ class Profile < ApplicationRecord
 
   has_one_attached :pic
   has_many_attached :photos
+  has_many :messages
 
   def avatar
     self.pic.variant(resize: "150x150!").processed.service_url #processed.service_url

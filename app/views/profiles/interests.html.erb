@@ -1,25 +1,24 @@
-<div class="container">
-  <h4>Interests</h4>
-  <p>
-    I have <%= @profile.interests.count %> interests
-  </p>
-  <% @profile.interests.each do |interest| %>
-    <%= interest.interest %>
-  <% end %>
+<%= provide(:active, "container") %>
+<h4>Interests</h4>
+<p>
+  I have <%= @profile.interests.count %> interests
+</p>
+<% @profile.interests.each do |interest| %>
+  <%= interest.interest %>
+<% end %>
 
-  <h4>Add Interests</h4>
-  <div>
-    <%= form_for @profile, url: {action: "update_interests"}, :method => :POST do |f| %>
-      <% @interests.each do |i| %>
-        <p>
-          <label>
-            <input type="checkbox" value="<%= i.id %>" name="interests[]" />
-            <span><%= i.interest %></span>
-          </label>
-        </p>
-      <% end %>
-      <br>
-      <%= f.submit %>
+<h4>Add Interests</h4>
+<div>
+  <%= form_for @profile, url: {action: "update_interests"}, :method => :POST do |f| %>
+    <% @interests.each do |i| %>
+      <p>
+        <label>
+          <input type="checkbox" value="<%= i.id %>" name="interests[]" />
+          <span><%= i.interest %></span>
+        </label>
+      </p>
     <% end %>
-  </div>
+    <br>
+    <%= f.submit %>
+  <% end %>
 </div>

@@ -1,0 +1,9 @@
+<div id='profile-banner' class='nav-wrapper blue'>
+  <div class=' profile-pic container'>
+    <% if @profile.pic.attached? %>
+    <div style="width:150px; height:auto">
+      <%= image_tag @profile.avatar, :class => 'circle' %>
+    </div>
+    <% end %>
+  </div>
+</div>
