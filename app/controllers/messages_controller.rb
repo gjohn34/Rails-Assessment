@@ -2,7 +2,8 @@ class MessagesController < ApplicationController
 
   def index
     #have to change below to current user
-    @messages = Message.where(:profile_id == params[:id])
+    @profile = Profile.friendly.find(params[:id])
+    @messages = Message.where(profile_id: @profile.id)
   end
 
   def new

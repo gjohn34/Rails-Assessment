@@ -10,4 +10,4 @@
   <% end %>
 </div>
 
-<%= link_to "All Messages", profile_messages_path(@profile) %>
+<%= link_to "All Messages", profile_messages_path(@profile, :id => @profile.id) %>
