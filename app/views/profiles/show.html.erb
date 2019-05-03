@@ -1,18 +1,14 @@
 <%= provide(:active, "container") %>
   <div class='row'>
-    <div class="col s12 m6">
-      <div class='bio-box'>
-        <h4 class='black-text'>A little about me...</h4>
-        <p class="black-text"><%= @profile.bio %></p>
-      </div>
+    <div class="col s12 m6 bio-box "> <!-- style class to be clear:left -->
+      <h4 class='black-text'>A little about me...</h4>
+      <p class="black-text"><%= @profile.bio %></p>
     </div>
-    <div class="col s12 m6">
-      <div class="bio-box">
-        <h4>Interest Stuff</h4>
-        <%= link_to "#{@profile.name}'s Interests", profile_interests_path(@profile) %>
-      </div>
+    <div class="col s12 m6 bio-box ">
+      <h4>Interest Stuff</h4>
+      <%= link_to "#{@profile.name}'s Interests", profile_interests_path(@profile) %>
     </div>
-    </div>
+  </div>
   <div class="row">
     <div class='photos'>
       <h4><%= @profile.name %>'s Photos</h4>

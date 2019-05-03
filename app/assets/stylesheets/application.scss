@@ -26,7 +26,11 @@ main {
 .bio-box {
   width: 500px;
   min-height: 200px; // changed to avoid scrolling every time I refresh page for carousel testing
-  padding-top: 75px;
+  margin-top: 25px;
+}
+
+.superduperleft {
+  clear: left;
 }
 
 .test {
