@@ -27,14 +27,19 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    # @profile.pic.attach(profile_params[:pic])
-
-
     if @profile.update(profile_params)
       redirect_to profile_path(@profile)
     else
       render :edit
     end
+  end
+
+  def update_interests
+    @profile = Profile.friendly.find(params[:profile_id])
+    params[:interests].each do |i|
+      @profile.interests.push(Interest.find(i))
+    end
+    @profile.save
   end
 
   def photos
@@ -43,6 +48,7 @@ class ProfilesController < ApplicationController
 
   def interests
     @profile = Profile.friendly.find(params[:profile_id])
+    @interests = Interest.all
   end
 
   private
