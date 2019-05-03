@@ -25,10 +25,14 @@ main {
 
 .bio-box {
   width: 500px;
-  min-height: 500px;
+  min-height: 200px; // changed to avoid scrolling every time I refresh page for carousel testing
   padding-top: 75px;
 }
 
 .test {
   color: red;
+}
+
+.materialboxed {
+  max-width: 100%;
 }
