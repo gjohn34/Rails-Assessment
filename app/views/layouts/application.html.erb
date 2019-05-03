@@ -18,7 +18,8 @@
       <% if @profile != nil %>
         <%= render 'profiles/banner' %>
       <% end %>
-      <div class="<%= yield(:active) %>">
+      <p class="notice"><%= notice %></p>
+      <div class="container">
         <%= yield %>
       </div>
     </main>
