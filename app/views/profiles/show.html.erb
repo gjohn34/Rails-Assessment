@@ -12,6 +12,12 @@
       <h4>Mailbox</h4>
       <%= link_to "Inbox", profile_messages_path(@profile) %>
     </div>
+    <div class="col s12 m6 bio-box">
+      <h4>Matches</h4>
+      <% @likes.each do |like| %>
+        <%= like.profile_id %>
+      <% end %>
+    </div>
   </div>
   <div class="row">
     <div class='photos'>
