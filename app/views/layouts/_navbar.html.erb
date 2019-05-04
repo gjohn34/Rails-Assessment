@@ -4,6 +4,7 @@
       <%= link_to "Root Path", root_path, :class => "brand-logo" %>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <% if user_signed_in? %>
+          <span>Logged in as <%= current_user.profile.name %></span>
           <% if current_user.profile == nil %>
             <li><%= link_to "Create my Profile", new_profile_path %></li>
           <% else %>
