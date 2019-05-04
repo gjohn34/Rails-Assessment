@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :authenticate_user!, only:[:new, :edit]
+  before_action :authenticate_user!, only:[:new, :edit, :show]
   before_action :set_profile, only: [:show, :edit, :update]
   def index
     @profiles = Profile.all

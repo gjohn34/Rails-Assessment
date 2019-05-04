@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 User.create!([{
   email: "test1@test.com",
   password: "password",
@@ -26,6 +27,9 @@ User.create!([{
   password_confirmation: "password"
   }])
 
+puts User.all.count
+
+
 Interest.create!([{
   interest: "Cats"
 },
@@ -39,6 +43,7 @@ Interest.create!([{
   interest: "Fridges"
   }])
 
+puts Interest.all.count
 
 
 
@@ -60,7 +65,7 @@ Interest.create!([{
   }
 ].each do |profile|
   resource = Profile.new(name: profile[:name], bio: profile[:bio], user_id: profile[:user_id])
-  # resource.pic.attach(io: File.open(Rails.root.join("app", "assets", "images", "anon.png")), filename: 'anon.png', content_type: "image/png")
+  resource.pic.attach(io: File.open(Rails.root.join("app", "assets", "images", "anon.png")), filename: 'anon.png', content_type: "image/png")
   resource.save
 end
 
@@ -69,6 +74,4 @@ profile.each do |profile|
   Like.create!(profile_id: profile.id)
 end
 
-puts User.all.count
-puts Interest.all.count
 puts Profile.all.count

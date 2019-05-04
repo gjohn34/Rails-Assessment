@@ -4,10 +4,6 @@
   <%= form_with model: Message.new, url: profile_messages_path(@profile), local: true do |form| %>
     <%= form.label :content %>
     <%= form.text_field :content %>
-    <%= form.label :sender_id %>
-    <%= form.text_field :sender_id %>
     <%= form.submit :Send %>
   <% end %>
 </div>
-
-<%= link_to "All Messages", profile_messages_path(@profile, :id => @profile.id) %>
