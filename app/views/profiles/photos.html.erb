@@ -1,4 +1,5 @@
 <%= provide(:active, "container") %>
+<%= provide(:banner, 'profiles/banner') %>
   <h4><%= @profile.name %>'s Photos</h4>
   <%= simple_form_for @profile do |f| %>
     <%= f.file_field :photos, multiple: true %>
