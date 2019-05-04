@@ -60,7 +60,7 @@ Interest.create!([{
   }
 ].each do |profile|
   resource = Profile.new(name: profile[:name], bio: profile[:bio], user_id: profile[:user_id])
-  resource.pic.attach(io: File.open(Rails.root.join("app", "assets", "images", "anon.png")), filename: 'anon.png', content_type: "image/png")
+  # resource.pic.attach(io: File.open(Rails.root.join("app", "assets", "images", "anon.png")), filename: 'anon.png', content_type: "image/png")
   resource.save
 end
 

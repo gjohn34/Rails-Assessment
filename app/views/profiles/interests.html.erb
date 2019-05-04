@@ -9,27 +9,29 @@
   <%= interest.interest %>
 <% end %>
 
-<h4>Add Interests</h4>
-<div>
-  <%= form_for @profile, url: {action: "update_interests"}, :method => :POST do |f| %>
-    <% @interests.each do |i| %>
-      <% if @profile.interests.include?(Interest.find(i.id)) %>
-        <p>
-          <label>
-            <input type="checkbox" checked="checked" value="<%= i.id %>" name="interests[]" />
-            <span><%= i.interest %></span>
-          </label>
-        </p>
-      <% else %>
-        <p>
-          <label>
-            <input type="checkbox" value="<%= i.id %>" name="interests[]" />
-            <span><%= i.interest %></span>
-          </label>
-        </p>
+<% if @profile.user_id == current_user.id %>
+  <h4>Add Interests</h4>
+  <div>
+    <%= form_for @profile, url: {action: "update_interests"}, :method => :POST do |f| %>
+      <% @interests.each do |i| %>
+        <% if @profile.interests.include?(Interest.find(i.id)) %>
+          <p>
+            <label>
+              <input type="checkbox" checked="checked" value="<%= i.id %>" name="interests[]" />
+              <span><%= i.interest %></span>
+            </label>
+          </p>
+        <% else %>
+          <p>
+            <label>
+              <input type="checkbox" value="<%= i.id %>" name="interests[]" />
+              <span><%= i.interest %></span>
+            </label>
+          </p>
+        <% end %>
       <% end %>
+      <br>
+      <%= f.submit %>
     <% end %>
-    <br>
-    <%= f.submit %>
-  <% end %>
-</div>
+  </div>
+<% end %>

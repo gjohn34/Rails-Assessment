@@ -54,7 +54,8 @@ class ProfilesController < ApplicationController
   end
 
   def update_likes
-    liker = Profile.friendly.find(2)
+    liker = current_user.profile
+    # raise current_user.inspect
     @profile = Profile.friendly.find(params[:id])
     liker.likes.push(Like.find(@profile.id))
     # raise liker.inspect

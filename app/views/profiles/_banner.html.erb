@@ -10,9 +10,11 @@
       </div>
       <div class="col s12 m9">
         <% if @profile.id != current_user.id %>
-          <%= form_for @profile, url: {action: "update_likes", controller: "profiles", params: {:id => @profile.id}}, :method => :POST do |f| %>
-            <%= f.submit "I Like This" %>
-          <% end %>
+          <% if current_user.profile.likes.include?(@profile.id) %>
+            <%= form_for @profile, url: {action: "update_likes", controller: "profiles", params: {:id => @profile.id}}, :method => :POST do |f| %>
+              <%= f.submit "I Like This" %>
+              <% end %>
+            <% end %>
         <% end %>
       </div>
     </div>
