@@ -9,6 +9,9 @@
         <% end %>
       </div>
       <div class="col s12 m9">
+        <%= form_for @profile, url: {action: "update_likes", params: {:id => @profile.id}}, :method => :POST do |f| %>
+          <%= f.submit %>
+        <% end %>
         I like this.
       </div>
     </div>

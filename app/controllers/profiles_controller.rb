@@ -14,6 +14,7 @@ class ProfilesController < ApplicationController
     @profile.pic.attach(profile_params[:pic])
 
     if @profile.save
+      Like.create!(profile_id: @profile.id)
       redirect_to profile_path(@profile)
     else
       render :new
@@ -40,6 +41,14 @@ class ProfilesController < ApplicationController
       @profile.interests.push(Interest.find(i))
     end
     @profile.save
+  end
+
+  def update_likes
+    liker = Profile.friendly.find(2)
+    @profile = Profile.friendly.find(params[:id])
+    liker.likes.push(Like.find(@profile.id))
+    # raise liker.inspect
+    # raise @profile.inspect
   end
 
   def photos

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_03_054105) do
+ActiveRecord::Schema.define(version: 2019_05_04_060733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,19 @@ ActiveRecord::Schema.define(version: 2019_05_03_054105) do
     t.index ["profile_id", "interest_id"], name: "index_interests_profiles_on_profile_id_and_interest_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.bigint "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_likes_on_profile_id"
+  end
+
+  create_table "likes_profiles", id: false, force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.bigint "like_id", null: false
+    t.index ["profile_id", "like_id"], name: "index_likes_profiles_on_profile_id_and_like_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.string "content"
     t.bigint "profile_id"
@@ -91,6 +104,7 @@ ActiveRecord::Schema.define(version: 2019_05_03_054105) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "likes", "profiles"
   add_foreign_key "messages", "profiles"
   add_foreign_key "messages", "profiles", column: "sender_id"
 end

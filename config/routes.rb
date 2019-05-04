@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get '/interests' => 'profiles#interests'
     post '/interests' => 'profiles#update_interests'
   end
+  post '/likes' => 'profiles#update_likes'
     # patch '/profiles/:id'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

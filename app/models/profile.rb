@@ -3,6 +3,7 @@ class Profile < ApplicationRecord
   friendly_id :name, use: :slugged
   validates :name, presence: true
   has_and_belongs_to_many :interests
+  has_and_belongs_to_many :likes
   after_commit :add_default_profile_pic, on: [:create, :update]
 
   has_one_attached :pic
