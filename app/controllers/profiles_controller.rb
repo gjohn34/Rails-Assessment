@@ -45,10 +45,12 @@ class ProfilesController < ApplicationController
 
   def update_interests
     @profile = Profile.friendly.find(params[:profile_id])
+    @profile.interests = []
     params[:interests].each do |i|
       @profile.interests.push(Interest.find(i))
     end
     @profile.save
+    redirect_to profile_path(@profile)
   end
 
   def update_likes
@@ -71,6 +73,7 @@ class ProfilesController < ApplicationController
   private
   def set_profile
     @profile = Profile.friendly.find(params[:id])
+
   end
 
   def profile_params

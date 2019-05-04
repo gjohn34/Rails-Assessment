@@ -13,12 +13,21 @@
 <div>
   <%= form_for @profile, url: {action: "update_interests"}, :method => :POST do |f| %>
     <% @interests.each do |i| %>
-      <p>
-        <label>
-          <input type="checkbox" value="<%= i.id %>" name="interests[]" />
-          <span><%= i.interest %></span>
-        </label>
-      </p>
+      <% if @profile.interests.include?(Interest.find(i.id)) %>
+        <p>
+          <label>
+            <input type="checkbox" checked="checked" value="<%= i.id %>" name="interests[]" />
+            <span><%= i.interest %></span>
+          </label>
+        </p>
+      <% else %>
+        <p>
+          <label>
+            <input type="checkbox" value="<%= i.id %>" name="interests[]" />
+            <span><%= i.interest %></span>
+          </label>
+        </p>
+      <% end %>
     <% end %>
     <br>
     <%= f.submit %>
