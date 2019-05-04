@@ -36,7 +36,13 @@ main {
 .test {
   color: red;
 }
+.carousel img {
+  height: 100%;
+  margin: auto;
 
-.materialboxed {
-  max-width: 100%;
+}
+
+.material-placeholder {
+  height: 100%;
+  display: flex;
 }
