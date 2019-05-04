@@ -8,6 +8,10 @@
       <h4>Interest Stuff</h4>
       <%= link_to "#{@profile.name}'s Interests", profile_interests_path(@profile) %>
     </div>
+    <div class="col s12 m6 bio-box superduperleft">
+      <h4>Mailbox</h4>
+      <%= link_to "Inbox", profile_messages_path(@profile) %>
+    </div>
   </div>
   <div class="row">
     <div class='photos'>

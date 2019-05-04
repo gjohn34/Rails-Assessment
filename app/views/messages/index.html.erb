@@ -1,4 +1,9 @@
 <%= provide(:active, "container") %>
-<% @messages.each do |message| %>
-  <%= message.content %><br>
-<% end %>
+<%= @profile.name %>
+<% if @profile.messages.empty? %>
+  <p>No Messages</p>
+<% else %>
+  <% @messages.each do |message| %>
+    <%= message.content %><br>
+  <% end %>
+<% end %>  
