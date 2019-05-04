@@ -22,7 +22,11 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @likes = Like.find_by_sql "SELECT profile_id FROM likes_profiles WHERE like_id = #{@profile.id}"
+    @result =Like.find_by_sql "SELECT profile_id FROM likes_profiles WHERE like_id = #{@profile.id}"
+    @likes = {}
+    @result.each do |like|
+      @likes[like.profile_id] = Profile.find(like.profile_id)
+    end
   end
 
   def edit

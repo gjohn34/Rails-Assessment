@@ -14,6 +14,10 @@ class Profile < ApplicationRecord
     self.pic.variant(resize: "150x150!").processed.service_url #processed.service_url
   end
 
+  def avatar_small
+    self.pic.variant(resize: "50x50!").processed.service_url #processed.service_url
+  end
+
   private
   def add_default_profile_pic
     unless pic.attached?
