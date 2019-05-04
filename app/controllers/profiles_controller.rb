@@ -11,7 +11,9 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profile.new(profile_params)
+    data = profile_params
+    data[:user_id] = current_user.id
+    @profile = Profile.new(data)
     @profile.pic.attach(profile_params[:pic])
 
     if @profile.save

@@ -1,14 +1,22 @@
 class Profile < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
+  #validation
   validates :name, presence: true
-  has_and_belongs_to_many :interests
-  has_and_belongs_to_many :likes
+  validates :user_id, uniqueness: true
   after_commit :add_default_profile_pic, on: [:create, :update]
 
+  #has_many_and_belongs_to_many
+  has_and_belongs_to_many :interests
+  has_and_belongs_to_many :likes
+  has_many :messages
+  
+  #belongs_to
+  belongs_to :user
   has_one_attached :pic
   has_many_attached :photos
-  has_many :messages
+
+
 
   def avatar
     self.pic.variant(resize: "150x150!").processed.service_url #processed.service_url
