@@ -76,3 +76,7 @@ gem "activestorage-cloudinary-service", "~> 0.2.3"
 gem 'friendly_id', '~> 5.2.4'
 #devise for login and auth
 gem 'devise'
+gem 'popper_js', '~> 1.14.5'
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+gem 'responders', '~> 2.0'
