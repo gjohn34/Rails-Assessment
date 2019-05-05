@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :make_profile
 
   def index
     #have to change below to current user
@@ -17,5 +19,14 @@ class MessagesController < ApplicationController
     data[:sender_id] = current_user.id
     @message = Message.create!(data)
     redirect_to root_path
+  end
+
+  private
+
+  def make_profile
+    if current_user.profile == nil
+      flash[:notice] = "You need to create a profile first"
+      redirect_to new_profile_path
+    end
   end
 end

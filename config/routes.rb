@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :profiles do
     resources :messages
     get '/photos' => 'profiles#photos'#, as: :photos
+    get '/matches' => 'profiles#matches'
     get '/interests' => 'profiles#interests'
     post '/interests' => 'profiles#update_interests'
   end

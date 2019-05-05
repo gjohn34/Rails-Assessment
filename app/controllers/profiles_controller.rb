@@ -25,7 +25,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @result =Like.find_by_sql "SELECT profile_id FROM likes_profiles WHERE like_id = #{@profile.id}"
+    @result = Like.find_by_sql "SELECT profile_id FROM likes_profiles WHERE like_id = #{@profile.id}"
     @likes = {}
     @result.each do |like|
       @likes[like.profile_id] = Profile.find(like.profile_id)
@@ -53,13 +53,18 @@ class ProfilesController < ApplicationController
     redirect_to profile_path(@profile)
   end
 
-  def update_likes
+  def update_likes(home = false)
     liker = current_user.profile
-    # raise current_user.inspect
     @profile = Profile.friendly.find(params[:id])
     liker.likes.push(Like.find(@profile.id))
-    # raise liker.inspect
-    # raise @profile.inspect
+    # if home == true
+    #   render profile_path(current_user)
+    # else
+    #   flash[:notice] = "Wow, great choice!"
+    #   render :show
+    # end
+    flash[:notice] = "Wow, great choice!"
+    render :show
   end
 
   def photos
@@ -69,6 +74,22 @@ class ProfilesController < ApplicationController
   def interests
     @profile = Profile.friendly.find(params[:profile_id])
     @interests = Interest.all
+  end
+
+  def matches
+    @my_likes = Profile.friendly.find(current_user.id).likes
+    @people_who_like_me = Like.find_by_sql "SELECT profile_id FROM likes_profiles WHERE like_id = #{current_user.id}"
+    @profiles = []
+    @people_who_like_me.each do |like|
+      @profiles.push(Profile.find(like.profile_id))
+    end
+
+
+
+
+
+
+
   end
 
   private

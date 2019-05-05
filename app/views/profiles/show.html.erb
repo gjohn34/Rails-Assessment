@@ -18,7 +18,7 @@
     </div>
     <div class="col s12 m6 bio-box">
       <% if current_user.id == @profile.user_id %>
-        <h4>Matches</h4>
+        <h4>Who Likes Me?</h4>
         <% @likes.each do |key, value| %>
           <% if !@profile.likes.any? {|p| p.profile_id == value.id} %>
             <div class='row'>
