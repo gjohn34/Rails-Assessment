@@ -1,4 +1,12 @@
 <h4>My Matches</h4>
-<% @profiles.each do |profile| %>
-  <p>You've matched with <%= profile.name %></p> 
+<% if @my_likes.empty? || @profiles.nil? %>
+  <p>Brrrr its chilly in here</p>
+<% else %>
+  <% @my_likes.each do |like| %>
+    <% @profiles.each do |profile| %>
+      <% if like.id == profile.id %>
+        <p>You've matched with <%= profile.name %></p>
+      <% end %>
+    <% end %>
+  <% end %>
 <% end %>
