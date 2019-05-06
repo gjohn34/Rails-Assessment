@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :messages
     resources :payments, only: [:new, :create]
     get '/photos' => 'profiles#photos'#, as: :photos
+    get '/hookup' => 'profiles#hookup'
     get '/matches' => 'profiles#matches'
     get '/interests' => 'profiles#interests'
     post '/interests' => 'profiles#update_interests'

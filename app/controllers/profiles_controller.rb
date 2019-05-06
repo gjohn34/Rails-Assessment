@@ -87,6 +87,9 @@ class ProfilesController < ApplicationController
     # raise @profiles.inspect
   end
 
+  def hookup
+  end
+
   private
   def set_profile
     @profile = Profile.friendly.find(params[:id])

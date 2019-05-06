@@ -1,21 +1,24 @@
 class PaymentsController < ApplicationController
   def new
-    Stripe.api_key = "#{ENV['STRIPE_API']}"
+    if current_user.profile.premium?
+      redirect_to profile_hookup_path
+    else
+      Stripe.api_key = "#{ENV['STRIPE_API']}"
 
-    @stripe_checkout_session = Stripe::Checkout::Session.create(
-      payment_method_types: ['card'],
-      line_items: [{
-        name: 'One off lifetime payment to Root Path',
-        description: "Best decision you've ever made",
-        amount: 9999,
-        currency: 'aud',
-        quantity: 1,
-      }],
-      success_url: "http://localhost:3000/success",
-      cancel_url: 'http://localhost:3000/cancel',
-    )
-
-    #send params with success?
+      @stripe_checkout_session = Stripe::Checkout::Session.create(
+        payment_method_types: ['card'],
+        line_items: [{
+          name: 'One off lifetime payment to Root Path',
+          description: "Best decision you've ever made",
+          amount: 9999,
+          currency: 'aud',
+          quantity: 1,
+        }],
+        success_url: "http://localhost:3000/success",
+        cancel_url: 'http://localhost:3000/cancel',
+      )
+      #send params with success?
+    end
   end
 
   def success
@@ -23,8 +26,7 @@ class PaymentsController < ApplicationController
     #params?
     @profile.premium = true
     @profile.save
-    flash[:notice] = 'Premium User now'
-    redirect_to @profile
+    redirect_to profile_hookup_path(@profile)
   end
 
   def cancel
