@@ -77,4 +77,4 @@ gem 'friendly_id', '~> 5.2.4'
 #devise for login and auth
 gem 'devise'
 #stripe for payment
-gem 'stripe'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'

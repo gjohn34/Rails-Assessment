@@ -5,7 +5,7 @@
   <% @my_likes.each do |like| %>
     <% @profiles.each do |profile| %>
       <% if like.id == profile.id %>
-        <p>You've matched with <%= profile.name %></p>
+        <p>You've matched with <%= profile.name %> | <%= link_to 'Make a Date', new_profile_payment_path %></p>
       <% end %>
     <% end %>
   <% end %>
