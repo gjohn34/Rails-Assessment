@@ -9,6 +9,7 @@
             <li><%= link_to "Create my Profile", new_profile_path %></li>
           <% else %>
             <span>Logged in as <%= current_user.profile.name %></span>
+            <li><%= link_to "My Profile", profile_path(current_user.profile.id) %></li>
             <li><%= link_to "My Messages", profile_messages_path(current_user.profile, :id => current_user.id) %></li>
             <li><%= link_to "My Matches", profile_matches_path(current_user.profile) %></li>
             <li><%= link_to "Log Out", destroy_user_session_path, :method => :DELETE %></li>
@@ -25,6 +26,7 @@
             <li><%= link_to "Create my Profile", new_profile_path %></li>
           <% else %>
             <span>Logged in as <%= current_user.profile.name %></span>
+            <li><%= link_to "My Profile", profile_path(current_user.profile.id) %></li>
             <li><%= link_to "My Messages", profile_messages_path(current_user.profile, :id => current_user.id) %></li>
             <li><%= link_to "My Matches", profile_matches_path(current_user.profile) %></li>
             <li><%= link_to "Log Out", destroy_user_session_path, :method => :DELETE %></li>

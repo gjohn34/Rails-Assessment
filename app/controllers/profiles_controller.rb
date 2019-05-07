@@ -2,7 +2,15 @@ class ProfilesController < ApplicationController
   before_action :authenticate_user!, only:[:new, :edit, :show]
   before_action :set_profile, only: [:show, :edit, :update]
   def index
+<<<<<<< HEAD
     @profiles = Profile.all
+=======
+    if user_signed_in?
+      @profiles = Profile.where.not(id: current_user.id)
+    else
+      @profiles = Profile.all
+    end
+>>>>>>> master
   end
 
   def new
