@@ -8,6 +8,7 @@
       <%= f.submit 'Save', class: "waves-effect waves-light btn"  %>
     <% end %>
   <% end %>
+  <%= link_to "Back", profile_path(@profile) %>
   <div class='row'>
     <% @profile.photos.each do |photo| %>
       <div class="col s12 m6 l4 center" style="height:300px;">
