@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   before_action :authenticate_user!, only:[:new, :edit, :show]
   before_action :set_profile, only: [:show, :edit, :update]
   def index
-    @profiles = Profile.all
+    @profiles = Profile.where.not(id: current_user.id)
   end
 
   def new
