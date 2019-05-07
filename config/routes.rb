@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  post 'modal/login' => 'login'
+  get 'modal/signup' => 'modal'
+  get 'modal/forgot' => 'forgot'
+
+
   devise_for :users
   root to: 'profiles#index'
   #Static Pages

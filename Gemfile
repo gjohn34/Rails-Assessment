@@ -78,3 +78,8 @@ gem 'friendly_id', '~> 5.2.4'
 gem 'devise'
 #stripe for payment
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+#for modal
+gem 'popper_js', '~> 1.14.5'
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+gem 'responders', '~> 2.0'

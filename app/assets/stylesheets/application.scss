@@ -46,3 +46,53 @@ main {
   height: 100%;
   display: flex;
 }
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.modal {
+  display: flex;
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  top: 20%;
+  bottom: 20%;
+  color: black;
+  padding: 0;
+  margin: auto;
+  //height: 100%;
+  //display: ;
+  //max-height: 100%!important;
+  width: 700px;
+  z-index: 1000;
+}
+
+.hide-modal {
+  display: none;
+}
+
+.modal-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#testbut {
+    background:none!important;
+    color:inherit;
+    border:none;
+    padding:0!important;
+    font: inherit;
+    cursor: pointer;
+
+}

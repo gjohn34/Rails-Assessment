@@ -14,7 +14,7 @@
             <li><%= link_to "Log Out", destroy_user_session_path, :method => :DELETE %></li>
           <% end %>
         <% else %>
-          <li><%= link_to "Log In", new_user_session_path %></li>
+          <li><%= button_to "Log In", modal_login_path, {:id => "testbut", :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
         <% end %>
       </ul>
       <ul class="sidenav blue" id="mobile-demo">
@@ -44,3 +44,10 @@
   </script>
 
 </nav>
+
+<div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
