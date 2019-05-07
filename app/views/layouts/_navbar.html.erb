@@ -4,15 +4,16 @@
       <%= link_to "Root Path", root_path, :class => "brand-logo" %>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <% if user_signed_in? %>
-          <% if current_user.profile == nil %>
-            <li><%= link_to "Create my Profile", new_profile_path %></li>
-          <% else %>
-            <span>Logged in as <%= current_user.profile.name %></span>
-            <li><%= link_to "My Profile", profile_path(current_user.profile.id) %></li>
-            <li><%= link_to "My Messages", profile_messages_path(current_user.profile, :id => current_user.id) %></li>
-            <li><%= link_to "My Matches", profile_matches_path(current_user.profile) %></li>
-            <li><%= link_to "Log Out", destroy_user_session_path, :method => :DELETE %></li>
+          <li><%= link_to "All Profiles", profiles_path %></li>
+          <% if user_signed_in? %>
+            <% if current_user.profile == nil %>
+              <li><%= link_to "Create my Profile", new_profile_path %></li>
+            <% else %>
+              <li>Logged in as <%= current_user.profile.name %></li>
+              <li><%= link_to "My Profile", profile_path(current_user.profile.id) %></li>
+              <li><%= link_to "My Messages", profile_messages_path(current_user.profile, :id => current_user.id) %></li>
+              <li><%= link_to "My Matches", profile_matches_path(current_user.profile) %></li>
+              <li><%= link_to "Log Out", destroy_user_session_path, :method => :DELETE %></li>
           <% end %>
         <% else %>
           <li><%= button_to "Log In", modal_login_path, {:id => "testbut", :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
@@ -21,6 +22,7 @@
       <ul class="sidenav blue" id="mobile-demo">
         <%= link_to "~/ Path", root_path, :class => "brand-logo" %>
         <br>
+        <li><%= link_to "All Profiles", profiles_path %></li>
         <% if user_signed_in? %>
           <% if current_user.profile == nil %>
             <li><%= link_to "Create my Profile", new_profile_path %></li>

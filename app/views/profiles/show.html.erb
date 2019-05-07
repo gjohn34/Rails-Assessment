@@ -1,24 +1,37 @@
 <%= provide(:active, "container") %>
 <%= provide(:banner, 'profiles/banner') %>
 <div class='row'>
-  <div class="col s12 m12 bio-box "> <!-- style class to be clear:left -->
+  <h4><%= @profile.name %></h4>
+  <div class="col s12 m12 l6 bio-box "> <!-- style class to be clear:left -->
     <h4 class='black-text'>A little about me...</h4>
     <p class="black-text"><%= @profile.bio %></p>
     <% if current_user.id == @profile.user_id %>
-      <%= link_to "Edit", edit_profile_path(@profile) %>
+      <%= link_to "Edit Bio", edit_profile_path(@profile) %>
     <% end %>
   </div>
-  <div class="col s12 m12 bio-box ">
+  <div class="col s12 m12 l6 bio-box ">
     <h4>Interest Stuff</h4>
-    <%= link_to "#{@profile.name}'s Interests", profile_interests_path(@profile) %>
+    <p>
+      I have <%= @profile.interests.count %> interests
+    </p>
+    <div class="row">
+      <% @profile.interests.each do |interest| %>
+        <div class="col s4">
+          <%= interest.interest %>
+        </div>
+      <% end %>
+    </div>
+    <% if current_user.profile.id == @profile.id %>
+      <%= link_to "Edit Interests", profile_interests_path(@profile) %>
+    <% end %>
   </div>
-  <div class="col s12 m12 bio-box superduperleft">
+  <div class="col s12 m12 l6 bio-box superduperleft">
     <% if current_user.id == @profile.user_id %>
       <h4>Mailbox</h4>
       <%= link_to "Inbox", profile_messages_path(@profile) %>
     <% end %>
   </div>
-  <div class="col s12 m12 bio-box">
+  <div class="col s12 m12 l6 bio-box">
     <% if current_user.id == @profile.user_id %>
       <h4>Who Likes Me?</h4>
       <% @likes.each do |key, value| %>

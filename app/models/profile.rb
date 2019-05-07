@@ -28,8 +28,8 @@ class Profile < ApplicationRecord
 
   private
   def add_default_profile_pic
-    # unless pic.attached?
-    #   self.pic.attach(io: File.open(Rails.root.join("app", "assets", "images", "anon.png")), filename: 'anon.png', content_type: "image/png")
-    # end
+    unless pic.attached?
+      self.pic.attach(io: File.open(Rails.root.join("app", "assets", "images", "anon.png")), filename: 'anon.png', content_type: "image/png")
+    end
   end
 end
