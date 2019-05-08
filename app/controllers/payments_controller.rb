@@ -14,11 +14,11 @@ class PaymentsController < ApplicationController
           currency: 'aud',
           quantity: 1,
         }],
-        success_url: "http://localhost:3000/success?key=#{@profile.randomkey}",
+        success_url: "http://localhost:3000/success",
         cancel_url: 'http://localhost:3000/cancel',
       )
-      success_url: "http://localhost:3000/success?key=#{@profile.randomkey}",
-      
+      #success_url: "http://localhost:3000/success?key=#{@profile.randomkey}",
+
       #send params with success?
     end
   end
