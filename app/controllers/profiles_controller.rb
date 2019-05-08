@@ -83,9 +83,9 @@ class ProfilesController < ApplicationController
   end
 
   def matches
-    @my_likes = Profile.friendly.find(current_user.id).likes
+    @my_likes = Profile.friendly.find(current_user.profile.id).likes
     # raise @my_likes.inspect
-    @people_who_like_me = Like.find_by_sql "SELECT profile_id FROM likes_profiles WHERE like_id = #{current_user.id}"
+    @people_who_like_me = Like.find_by_sql "SELECT profile_id FROM likes_profiles WHERE like_id = #{current_user.profile.id}"
     @profiles = []
     @people_who_like_me.each do |like|
       @profiles.push(Profile.find(like.profile_id))

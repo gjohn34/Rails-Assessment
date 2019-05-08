@@ -9,7 +9,7 @@
   <%= interest.interest %>
 <% end %>
 
-<% if @profile.user_id == current_user.id %>
+<% if @profile.user_id == current_user.profile.id %>
   <h4>Add Interests</h4>
   <div>
     <%= form_for @profile, url: {action: "update_interests"}, :method => :POST do |f| %>

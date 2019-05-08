@@ -6,8 +6,10 @@
     <h4 class='black-text'>A little about me...</h4>
     <p class="black-text"><%= @profile.bio %></p>
     <% if user_signed_in? %>
-      <% if current_user.id == @profile.user_id %>
-        <%= link_to "Edit Bio", edit_profile_path(@profile) %>
+      <% if current_user.profile != nil %>
+        <% if current_user.profile.id == @profile.user_id %>
+          <%= link_to "Edit Bio", edit_profile_path(@profile) %>
+          <% end %>
       <% end %>
     <% end %>
   </div>
@@ -33,29 +35,33 @@
   </div>
   <div class="col s12 m12 l6 bio-box superduperleft">
     <% if user_signed_in? %>
-      <% if current_user.id == @profile.user_id %>
-        <h4>Mailbox</h4>
-        <%= link_to "Inbox", profile_messages_path(@profile) %>
+      <% if current_user.profile != nil %>
+        <% if current_user.profile.id == @profile.user_id %>
+          <h4>Mailbox</h4>
+          <%= link_to "Inbox", profile_messages_path(@profile) %>
+        <% end %>
       <% end %>
     <% end %>
   </div>
   <div class="col s12 m12 l6 bio-box">
     <% if user_signed_in? %>
-      <% if current_user.id == @profile.user_id %>
-        <h4>Who Likes Me?</h4>
-        <% @likes.each do |key, value| %>
-          <% if !@profile.likes.any? {|p| p.profile_id == value.id} %>
-            <div class='row'>
-              <div class="col s2">
-                <%= image_tag value.avatar_small, :class => 'circle' %>
+      <% if current_user.profile != nil %>
+        <% if current_user.id == @profile.user_id %>
+          <h4>Who Likes Me?</h4>
+          <% @likes.each do |key, value| %>
+            <% if !@profile.likes.any? {|p| p.profile_id == value.id} %>
+              <div class='row'>
+                <div class="col s2">
+                  <%= image_tag value.avatar_small, :class => 'circle' %>
+                </div>
+                <div class="col s10 valign-wrapper">
+                  <p><%= value.name %>
+                    <%= form_for @profile, url: {action: "update_likes", controller: "profiles", params: {:id => value.id}}, :method => :POST do |f| %>
+                      <%= f.submit "Like Back" %>
+                    <% end %></p>
+                </div>
               </div>
-              <div class="col s10 valign-wrapper">
-                <p><%= value.name %>
-                  <%= form_for @profile, url: {action: "update_likes", controller: "profiles", params: {:id => value.id}}, :method => :POST do |f| %>
-                    <%= f.submit "Like Back" %>
-                  <% end %></p>
-              </div>
-            </div>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>

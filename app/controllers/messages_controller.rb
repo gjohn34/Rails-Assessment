@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
 
   def index
     #have to change below to current user
-    @profile = Profile.friendly.find(current_user.id) #currently AJ
+    @profile = Profile.friendly.find(current_user.profile.id) #currently AJ
     @messages = Message.where(profile_id: @profile.id)
   end
 
@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
     @profile = Profile.friendly.find(params[:profile_id])
     data = params.require(:message).permit(:content)
     data[:profile_id] = @profile.id
-    data[:sender_id] = current_user.id
+    data[:sender_id] = current_user.profile.id
     @message = Message.create!(data)
     redirect_to root_path
   end
