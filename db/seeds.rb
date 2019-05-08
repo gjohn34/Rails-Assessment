@@ -7,27 +7,22 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!([{
-  email: "test1@test.com",
+  email: "johnsmith@coderacademy.com",
   password: "password",
   password_confirmation: "password"
 },
 {
-  email: "test2@test.com",
+  email: "alexjones@infowars.com",
   password: "password",
   password_confirmation: "password"
 },
 {
-  email: "test3@test.com",
+  email: "tomgreen@mousehouse.com",
   password: "password",
   password_confirmation: "password"
-},
-{
-  email: "test4@test.com",
-  password: "password",
-  password_confirmation: "password"
-  }])
+}
 
-puts User.all.count
+# puts User.all.count
 
 
 Interest.create!([{
@@ -43,7 +38,7 @@ Interest.create!([{
   interest: "Fridges"
   }])
 
-puts Interest.all.count
+# puts Interest.all.count
 
 
 
@@ -74,4 +69,4 @@ profile.each do |profile|
   Like.create!(profile_id: profile.id)
 end
 
-puts Profile.all.count
+# puts Profile.all.count
