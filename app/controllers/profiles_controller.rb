@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
   def index
     @profiles = Profile.all
     if user_signed_in?
-      @profiles = Profile.where.not(id: current_user.id)
+      @profiles = Profile.where.not(id: current_user.profile.id)
     else
       @profiles = Profile.all
     end
