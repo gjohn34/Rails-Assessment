@@ -12,7 +12,7 @@ User.create!([{
   email: "tomgreen@mousehouse.com",
   password: "password",
   password_confirmation: "password"
-}]}
+}])
 
 # puts User.all.count
 
