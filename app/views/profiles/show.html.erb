@@ -24,7 +24,7 @@
       <% end %>
     </div>
     <% if user_signed_in? %>
-      <% if current_user.profile.id == @profile.id %>
+      <% if current_user.id == @profile.id %>
         <%= link_to "Edit Interests", profile_interests_path(@profile) %>
       <% end %>
     <% end %>
