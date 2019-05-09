@@ -1,4 +1,10 @@
 <%= provide(:active, "container") %>
+<div class="row">
+  <%= form_tag search_index_path, method: :get do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag "Search", name: nil %>
+  <% end %>
+</div>
 <div class='row'>
   <% @profiles.each do |profile| %>
   <div class="col s12 m6 l4">
