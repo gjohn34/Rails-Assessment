@@ -1,9 +1,10 @@
 <%= provide(:active, "container") %>
-<%= @profile.name %>
+<h4>My Inbox</h4>
 <% if @profile.messages.empty? %>
   <p>No Messages</p>
 <% else %>
   <% @messages.each do |message| %>
     <%= message.content %><br>
+    <span>Sent by <%= message.find_sender %> @<%= message.created_at %></span><br> 
   <% end %>
-<% end %>  
+<% end %>

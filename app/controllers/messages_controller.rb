@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
     @profile = Profile.friendly.find(params[:profile_id])
     data = params.require(:message).permit(:content)
     data[:profile_id] = @profile.id
-    data[:sender_id] = current_user.profile.id
+    data[:sender_id] = current_user.profile
     @message = Message.create!(data)
     redirect_to root_path
   end

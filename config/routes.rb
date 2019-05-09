@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   get '/cancel' => 'payments#cancel'
   post '/likes' => 'profiles#update_likes'
 
+  get '/messages' => 'messages#index'
+
   get "search/index"
     # patch '/profiles/:id'
 
