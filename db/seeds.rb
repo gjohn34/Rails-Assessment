@@ -18,16 +18,16 @@ User.create!([{
 
 
 Interest.create!([{
-  interest: "Cats"
+  interest: "cats"
 },
 {
-  interest: "Dogs"
+  interest: "dogs"
 },
 {
-  interest: "Fish"
+  interest: "fish"
 },
 {
-  interest: "Fridges"
+  interest: "fridges"
   }])
 
 # puts Interest.all.count

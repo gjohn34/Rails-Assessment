@@ -1,13 +1,8 @@
 <%= provide(:active, "container") %>
-<div class="row">
-  <%= form_tag search_index_path, method: :get do %>
-    <%= text_field_tag :search %>
-    <%= submit_tag "Search", name: nil %>
-  <% end %>
+<%= render partial: 'partials/search' %>
 
-</div>
 <div class='row'>
-  <%if @profiles.empty? %>
+  <%if @profiles.nil? || @profiles.empty? %>
     <p>We couldn't find anyone who is interested in that :( </p>
   <% else %>
     <% @profiles.each do |profile| %>

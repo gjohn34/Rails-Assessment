@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+  <div class="row">
+    <div class='col s12 m6 l6'
+      <%= form_tag search_index_path, method: :get do %>
+        <%= text_field_tag :search, "Search for interests" %>
+        <%= submit_tag "Search", name: nil %>
+      <% end %>
+      </div>
+  </div>
+<% end %>
