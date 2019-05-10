@@ -5,9 +5,12 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
+  profile_id: 1
   content: string
 # column: value
 #
 two:
+  profile_id: 1
   content: string
+
 # column: value

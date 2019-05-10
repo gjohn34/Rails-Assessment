@@ -25,5 +25,9 @@ class ProfileTest < ActiveSupport::TestCase
     assert_equal 0, @profile.likes.size, 'profile should start empty'
   end
 
+  test 'number of interests' do
+    assert_equal 0, @profile.interests.size, 'profile should start empty'
+  end
+
 
 end
