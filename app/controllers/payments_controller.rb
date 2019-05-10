@@ -41,5 +41,7 @@ class PaymentsController < ApplicationController
   end
 
   def cancel
+    flash[:notice] = "Your payment was cancelled"
+    redirect_to root_path
   end
 end
