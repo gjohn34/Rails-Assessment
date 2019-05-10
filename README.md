@@ -111,6 +111,11 @@ C: Meets P with specific mention of requirements for this project, such as user 
 D: Meets CR with discussion of alternative options for information security and benefits/tradeoffs of each
 HD: Meets D with evidence that the best option for information security was chosen
 
+
+To protect user information it is essential that every request is authenticated, the first point of security to look at is sessions. Rather than have users reenter their details for each request, their username and password are stored in a session hash. 
+To avoid session information in cookies being sniffed, forcing SSL on the server ensures that a secure connection is made between the host and user. 
+Including a “log out” button ensures the the user has an easy to locate way to end the session and prevent others from using their account.
+
 # 22. Discuss methods you will use to protect information and data..
 C: Meets P with specific design for implementing basic user login authentication for this project:
 I can’t really answer the C criteria - Aaron
@@ -119,17 +124,14 @@ Using Devise?
 D: Meets CR with discussion of alternative options for protecting information and data and benefits/tradeoffs of each:
 	
 # 23. Research what your legal obligations are in relation to handling user data.
-C/P - hello fbi: 
 The internet is still a relatively new technology and we’re still trying to understand the impact it has on society, many of our laws regarding technology haven’t been updated to reflect the advances. User data protection has been a conflicting issue throughout the growth and monetization of the internet, and has resulted in laws created to protect users in various countries. The most notable effort is the GDPR in the EU, which has inevitably had a global impact as it applies to not only EU based companies but those that offer goods and services there - i.e Facebook. 
 Although there is a Privacy Act in Australia, it doesn’t place as many restrictions on companies as the GDPR. For example, the Privacy Act has a $2.1 million fine for breaching and includes a small business exclusion under certain circumstances, whereas the GDPR fine is €20 million or roughly 4% of their total worldwide annual turnover.
 As we aren’t intending to engage with an international user-base, we only need to adhere to the Privacy Act 1988 - while broad it’s somewhat straightforward with what constitutes as “personal information”.
 Essentially we need to follow the “information lifecycle”:
-Consider whether it is actually necessary to collect and hold personal information in order to carry out your functions or activities
-Plan how personal information will be handled by embedding privacy protections into the design of information handling practices
-Assess the risks associated with the collection of the personal information due to a new act, practice, change to an existing project or as part of business as usual
-Take appropriate steps and put into place strategies to protect personal information that you hold
-Destroy or de-identify the personal information when it is no longer needed.
+1. Consider whether it is actually necessary to collect and hold personal information in order to carry out your functions or activities
+2. Plan how personal information will be handled by embedding privacy protections into the design of information handling practices
+3. Assess the risks associated with the collection of the personal information due to a new act, practice, change to an existing project or as part of business as usual
+4. Take appropriate steps and put into place strategies to protect personal information that you hold
+5. Destroy or de-identify the personal information when it is no longer needed.
 
-D: Meets CR with discussion of alternate approaches to meet obligations and benefits/tradeoffs of each:
-While we weren’t able to incorporate it in time, there is a Ruby Gem called “GDPR Rails - https://github.com/prey/gdpr_rails” that makes your app GDPR compliant. Although GDPR isn’t applicable to our app, many of the guidelines run parallel with the Australian Privacy Act 1988 albeit stricter with harsher consequences - by complying with the former we theoretically/also (idk if also is accurate) comply with the latter. Assuming the functionality is there, including this gem would be a fantastic addition to our existing security measures.
-Need to expand and consider any negatives 
+While we weren’t able to incorporate it in time, there is a Ruby Gem called “GDPR Rails - https://github.com/prey/gdpr_rails” that makes your app GDPR compliant. Although GDPR isn’t applicable to our app, many of the guidelines run parallel with the Australian Privacy Act 1988 albeit stricter with harsher consequences - by complying with the former we should comply with the latter by default. Assuming the functionality is there, including this gem would be a fantastic addition to our existing security measures. 
