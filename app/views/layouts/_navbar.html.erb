@@ -16,7 +16,8 @@
               <li><%= link_to "Log Out", destroy_user_session_path, :method => :DELETE %></li>
           <% end %>
         <% else %>
-          <li><%= button_to "Log In", modal_login_path, {:id => "testbut", :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
+<!--          AJAX call on button press to toggle modal div and load devise login partial-->
+          <li><%= button_to "Log In", modal_login_path, {:id => "login-button", remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
         <% end %>
       </ul>
       <ul class="sidenav blue" id="mobile-demo">

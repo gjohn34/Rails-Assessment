@@ -11,8 +11,8 @@
   <%= link_to "Back", profile_path(@profile) %>
   <div class='row'>
     <% @profile.photos.each do |photo| %>
-      <div class="col s12 m6 l4 center" style="height:300px;">
-        <%= image_tag photo.variant(resize: "300x300!"), :class => 'responsive-img' %>
+      <div class="col s12 m6 l4 center responsive-img-container" style="height:300px;">
+        <%= image_tag photo, :class => 'responsive-img materialboxed' %>
       </div>
   <% end %>
   </div>
