@@ -17,7 +17,7 @@
           <% end %>
         <% else %>
 <!--          AJAX call on button press to toggle modal div and load devise login partial-->
-          <li><%= button_to "Log In", modal_login_path, {:id => "login-button", remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
+          <li><%= button_to "Log In", modal_login_path, {:id => "login-button", :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
         <% end %>
       </ul>
       <ul class="sidenav blue" id="mobile-demo">
