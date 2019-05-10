@@ -1,11 +1,11 @@
 require 'test_helper'
 
 class LikeTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @like = Like.new
+  end
+
   test 'like should not be null' do
-    like = Like.new
-    assert_not like.save, 'like saved'
+    assert_not @like.save, 'like saved'
   end
 end
