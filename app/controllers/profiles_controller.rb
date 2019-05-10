@@ -1,15 +1,13 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!, only:[:new, :edit]
-  before_action :set_profile, only: [:show, :edit, :update]
+  before_action :set_profile, only: [:show, :edit, :update, :update_interests, :update_likes]
 
   def index
     @profiles = Profile.all
-    if user_signed_in?
-      if current_user.profile != nil
-        @profiles = Profile.where.not(id: current_user.profile.id)
-      else
-        @profiles = Profile.all
-      end
+    if user_signed_in? && current_user.profile != nil
+      @profiles = Profile.where.not(id: current_user.profile.id)
+    else
+      @profiles = Profile.all
     end
   end
 
@@ -52,7 +50,6 @@ class ProfilesController < ApplicationController
   end
 
   def update_interests
-    @profile = Profile.friendly.find(params[:profile_id])
     @profile.interests = []
     params[:interests].each do |i|
       @profile.interests.push(Interest.find(i))
@@ -63,7 +60,6 @@ class ProfilesController < ApplicationController
 
   def update_likes(home = false)
     liker = current_user.profile
-    @profile = Profile.friendly.find(params[:id])
     liker.likes.push(Like.find(@profile.id))
     # if home == true
     #   render profile_path(current_user)
@@ -101,7 +97,6 @@ class ProfilesController < ApplicationController
   private
   def set_profile
     @profile = Profile.friendly.find(params[:id])
-
   end
 
   def profile_params

@@ -3,20 +3,22 @@ class MessagesController < ApplicationController
   before_action :make_profile
 
   def index
-    #have to change below to current user
-    @profile = Profile.friendly.find(current_user.profile.id) #currently AJ
-    @messages = Message.where(profile_id: @profile.id)
+    #find all messages that belong to current_user
+    @messages = Message.where(profile_id: current_user.profile.id)
   end
 
   def new
+    #page to create new message
     @profile = Profile.friendly.find(params[:id])
   end
 
   def create
+    #POST takes params submitted by form, infers sender and reciever ids on data then
+    #creates new message with data then redirects back to the root path
     @profile = Profile.friendly.find(params[:profile_id])
     data = params.require(:message).permit(:content)
     data[:profile_id] = @profile.id
-    data[:sender_id] = current_user.profile
+    data[:sender_id] = current_user.profile.id
     @message = Message.create!(data)
     redirect_to root_path
   end
