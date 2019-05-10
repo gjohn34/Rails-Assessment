@@ -5,7 +5,13 @@
         <span class="card-title"><%= profile.name %></span>
         <%= image_tag profile.avatar_small, :class => 'circle show' %>
       </div>
-      <p><%= profile.bio %></p>
+      <p>
+        <% if profile.bio.empty? %>
+          I am <%= profile.name %>
+        <% else %>
+          <%= profile.bio %>
+        <% end %>
+      </p>
     </div>
     <div class="card-action">
       <%= link_to "#{profile.name.capitalize}'s Profile", profile %>
