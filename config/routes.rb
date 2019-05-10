@@ -7,11 +7,13 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: 'profiles#index'
+
   #Static Pages
-  get 'pages/index'
-  get 'pages/about'
-  get 'pages/contact'
-  get 'pages/testimonies'
+  # scope shallow_prefix: "pages" do
+    get 'pages/about' => 'pages#about', as: :about
+    get 'pages/contact' => 'pages#contact', as: :contact
+    get 'pages/testimonies' => 'pages#testimonies', as: :testimonies
+  # end
 
 
   resources :profiles do
