@@ -1,0 +1,14 @@
+Day 1 - Group Makeup
+Day 2 - Planning:
+	Working on initial project ideas and layout of the application
+Day 3 - Database Desigin:
+	Development of the database relationships and how each would be implemeneted in rails
+Day 4 - Initial Work:
+	Initial structure of the application, including links around static pages, creating profile datatbase and creating create/edit/show profile
+Day 5 - Seeds and weeds:
+	Seeding database with existing profiles, creating interests available for each profile to have which would become a searchable feature between profiles
+Day 6 - Likes:
+	Giving profiles the ability to like other profiles, when two profiles like each other they are given a notification in their 'matches' page
+Day 7 - Implementing Stripe and Devise:
+	Giving Stripe functionality, if a profile isn't premium and and tries to make a date with another profile they are taken to the stripe page to give up their credit card details and premium status is applied. Devise implemented for users to log in.
+Day 8 - Bug fixing
