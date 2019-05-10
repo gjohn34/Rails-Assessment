@@ -26,6 +26,7 @@ class MessagesController < ApplicationController
   private
 
   def make_profile
+    #redirect user to create a profile if they do things that require them to create a profile
     if current_user.profile == nil
       flash[:notice] = "You need to create a profile first"
       redirect_to new_profile_path

@@ -1,6 +1,7 @@
 class Profile < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
+
   #validation
   validates :name, presence: true
   validates :user_id, uniqueness: true
@@ -13,6 +14,8 @@ class Profile < ApplicationRecord
 
   #belongs_to
   belongs_to :user
+
+  #active storage
   has_one_attached :pic
   has_many_attached :photos
 
@@ -27,6 +30,7 @@ class Profile < ApplicationRecord
   end
 
   private
+  #adds a default profile picture to a profile if none is provided
   def add_default_profile_pic
     unless pic.attached?
       self.pic.attach(io: File.open(Rails.root.join("app", "assets", "images", "anon.png")), filename: 'anon.png', content_type: "image/png")

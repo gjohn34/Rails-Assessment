@@ -1,5 +1,6 @@
 class PaymentsController < ApplicationController
   def new
+    #new payment via stripe
     if current_user.profile.premium?
       redirect_to profile_hookup_path
     else
@@ -24,8 +25,16 @@ class PaymentsController < ApplicationController
   end
 
   def success
+    #at the moment, after a user pays they are redirected to the success page
+    #and their premium status is set to true, all it takes is for a user to
+    #manually go the success url and they have skipped having to pay.
+
+    #a solution to this is to generate a random key on user creation and in the
+    #     Payments#New method pass that unique key with the success params and
+    #only set status to true if that unique key is passed as well. that is a future
+    #implementation
+
     @profile = current_user.profile
-    #params?
     @profile.premium = true
     @profile.save
     redirect_to profile_hookup_path(@profile)
