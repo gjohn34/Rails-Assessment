@@ -73,17 +73,21 @@
 
 <!--  </div>-->
 <% if user_signed_in? %>
-  <div class="carousel-container">
-    <h4><%= @profile.name %>'s Photos</h4>
-    <%= link_to "#{@profile.name}'s Photos", profile_photos_path(@profile) %>
-    <div class='carousel'>
-      <% @profile.photos.each do |photo| %>
-        <div class="carousel-item">
-            <%= image_tag photo, :class => 'materialboxed' %>
-        </div>
-      <% end %>
+  <% if current_user.profile != nil %>
+    <div class="carousel-container">
+      <h4><%= @profile.name %>'s Photos</h4>
+      <%= link_to "#{@profile.name}'s Photos", profile_photos_path(@profile) %>
+      <div class='carousel'>
+        <% @profile.photos.each do |photo| %>
+          <div class="carousel-item">
+              <%= image_tag photo, :class => 'materialboxed' %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
+    <% else %>
+      <h4 class='center'><%= link_to "Create your profile to see more good stuff!", new_profile_path %></h4>
+    <% end %>
   <% else %>
-  <h4 class='center'>Sign in to see more good stuff!</h4>
+  <h4 class='center'><%= link_to "Sign in to see more good stuff!", new_session_path %></h4>
 <% end %>
