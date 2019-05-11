@@ -23,9 +23,9 @@ Searching for other users based on their interests. Future builds plan to elabor
 Future Build to incorporate administrative users that can edit or remove profiles based on other User reports
 ```
 #### Screenshots
-![Screenshot1](Resources/Screenshot1.png)
-![Screenshot2](Resources/Screenshot2.png)
-![Screenshot3](Resources/Screenshot3.png)
+![Screenshot1](docs/Screenshot1.png)
+![Screenshot2](docs/Screenshot2.png)
+![Screenshot3](docs/Screenshot3.png)
 
 #### Tech stack (e.g. html, css, deployment platform, etc)
 Our application will be built using Ruby on Rails, deployed on Heroku
@@ -40,13 +40,13 @@ See questions relating to Design Process
 See question requesting User Stories
 
 #### A workflow diagram of the user journey/s.
-![User Journey](Resources/user_journey.png)
+![User Journey](docs/user_journey.png)
 
 #### Wireframes
 See question requesting Wire Frames
 
 #### Database Entity Relationship Diagrams
-![Database Design](Resources/database_design.png)
+![Database Design](docs/database_design.png)
 
 #### Project plan & timeline
 Day 1 - Group Makeup
@@ -65,7 +65,7 @@ Day 7 - Implementing Stripe and Devise:
 Day 8+ - Bug fixing
 
 #### Screenshots of Trello board(s)
-![Database Design](Resources/Trello.png)
+![Database Design](docs/Trello.png)
 
 See question requesting Trello Board
 
@@ -143,7 +143,7 @@ Heroku - Our application will be using Heroku servers to host.
 Stripe - Stripe is a third party platform that takes the responsibility of credit card payments away from the host. This includes holding all user data on their own private servers with their own security.
 
 # 11.Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
-![Tinder Database](Resources/tinder.png)
+![Tinder Database](docs/tinder.png)
 Above is a RDS example of the popular tinder app, that matches other users based on their gender, location distance, age range. When a tinder account is created, users can choose to authenticate via their Facebook profile or Instagram profile.
 Each account has many likes and super likes (paid content) that is a listing of profiles that are liked or actively not-liked by this user.
 After two users are matched together then they can message between each other until one of the users unmatch from the other.
@@ -161,15 +161,15 @@ The Profile model will belong to User, have many Messages as well as having and 
 On profile creation, each Profile will have the option of adding Interests to their Profile. Each interest has many and belongs to many profiles. This relationship allows an easier search function when searching by interest
 In regards to Messages and Conversations, a Conversation Model will have one sender field and receiver field(these names are arbitrary and can be used interchangeably as the code will treat them both as the same when a query is done on each Profile) and many Messages. This functionality wasn’t implemented fully and at the moment there is no Conversations Table, each profile can only see the messages that have been sent to them.
 # 14. Provide your database schema design.
-![Database Design](Resources/database_design.png)
+![Database Design](docs/database_design.png)
 # 15. Provide User stories for your App.
-![User Stories](Resources/user_stories.png)
+![User Stories](docs/user_stories.png)
 # 16. Provide Wireframes for your App.
 Link to Desktop Wireframe, am unable to link more than 1 layout.
 https://xd.adobe.com/spec/fa614ee9-dd7b-4463-4ec9-cb0a730f9c2d-8c50/
-![Wireframe Ipad](Resources/wireframe_ipad.png)
+![Wireframe Ipad](docs/wireframe_ipad.png)
 Wireframe for Ipad
-![Wireframe Mobile](Resources/wireframe_mobile.png)
+![Wireframe Mobile](docs/wireframe_mobile.png)
 Wireframe for Mobile
 
 # 17.Describe the way tasks are allocated and tracked in your project.
