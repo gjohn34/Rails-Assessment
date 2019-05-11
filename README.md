@@ -11,22 +11,63 @@ See Questions 1-3
 Our application offers the following features:
 ```
 User authentication
-Users being able to create and edit their profiles to their unique tastes
-
-
+Users being able to create and edit their profiles to their unique tastes regarding interests, photos, self-bio and many more that are planned in the future builds
+View other profiles
+Like other profile and be liked back
+Message other profiles
+See Messages that have been sent to them
+Matching with other Profiles
+The 'opportunity' to give up the dosh to become a premium user
+Viewable on different screen sizes with responsive designs
+Searching for other users based on their interests. Future builds plan to elaborate on search functions by name, age location etc
+Future Build to incorporate administrative users that can edit or remove profiles based on other User reports
 ```
-    Screenshots
-    Tech stack (e.g. html, css, deployment platform, etc)
-    Instructions on how to setup, configure and use your App.
-Design documentation including,
-    Design process
-    User stories
-    A workflow diagram of the user journey/s.
-    Wireframes
-    Database Entity Relationship Diagrams
-Details of planning process including,
-    Project plan & timeline
-    Screenshots of Trello board(s)
+#### Screenshots
+![Screenshot1](Resources/Screenshot1.png)
+![Screenshot2](Resources/Screenshot2.png)
+![Screenshot3](Resources/Screenshot3.png)
+
+#### Tech stack (e.g. html, css, deployment platform, etc)
+Our application will be built using Ruby on Rails, deployed on Heroku
+
+#### Instructions on how to setup, configure and use your App.
+Application is live on Heroku. No configuration from users necessary.
+
+#### Design process
+See questions relating to Design Process
+
+#### User stories
+See question requesting User Stories
+
+#### A workflow diagram of the user journey/s.
+![User Journey](Resources/user_journey.png)
+
+#### Wireframes
+See question requesting WireFrame
+
+#### Database Entity Relationship Diagrams
+![Database Design](Resources/database_design.png)
+
+#### Project plan & timeline
+Day 1 - Group Makeup
+Day 2 - Planning:
+	Working on initial project ideas and layout of the application
+Day 3 - Database Desigin:
+	Development of the database relationships and how each would be implemented in rails
+Day 4 - Initial Work:
+	Initial structure of the application, including links around static pages, creating profile database and creating create/edit/show profile
+Day 5 - Seeds and weeds:
+	Seeding database with existing profiles, creating interests available for each profile to have which would become a searchable feature between profiles
+Day 6 - Likes:
+	Giving profiles the ability to like other profiles, when two profiles like each other they are given a notification in their 'matches' page
+Day 7 - Implementing Stripe and Devise:
+	Giving Stripe functionality, if a profile isn't premium and and tries to make a date with another profile they are taken to the stripe page to give up their credit card details and premium status is applied. Devise implemented for users to log in.
+Day 8+ - Bug fixing
+
+#### Screenshots of Trello board(s)
+![Database Design](Resources/Trello.png)
+
+See question requesting Trello Board
 
 
 # 1. What is the need (i.e. challenge) that you will be addressing in your project
@@ -66,7 +107,7 @@ FriendlyId is a gem that takes a Model’s Id and creates a slug based on anothe
 For this application, we have chosen to use PostgreSQL for our database management.
 ### The reasons for this are that PostgreSQL:
 ```
-is free and open source
+Is free and open source
 Wide documentation available for support
 Over 30 years of continous improvements
 Runs on all major operating systems
@@ -102,7 +143,7 @@ Heroku - Our application will be using Heroku servers to host.
 Stripe - Stripe is a third party platform that takes the responsibility of credit card payments away from the host. This includes holding all user data on their own private servers with their own security.
 
 # 11.Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
-![Tinder Database](tinder.png)
+![Tinder Database](Resources/tinder.png)
 Above is a RDS example of the popular tinder app, that matches other users based on their gender, location distance, age range. When a tinder account is created, users can choose to authenticate via their Facebook profile or Instagram profile.
 Each account has many likes and super likes (paid content) that is a listing of profiles that are liked or actively not-liked by this user.
 After two users are matched together then they can message between each other until one of the users unmatch from the other.
@@ -120,10 +161,9 @@ The Profile model will belong to User, have many Messages as well as having and 
 On profile creation, each Profile will have the option of adding Interests to their Profile. Each interest has many and belongs to many profiles. This relationship allows an easier search function when searching by interest
 In regards to Messages and Conversations, a Conversation Model will have one sender field and receiver field(these names are arbitrary and can be used interchangeably as the code will treat them both as the same when a query is done on each Profile) and many Messages. This functionality wasn’t implemented fully and at the moment there is no Conversations Table, each profile can only see the messages that have been sent to them.
 # 14. Provide your database schema design.
-![Database Design](database_design.png)
+![Database Design](Resources/database_design.png)
 # 15. Provide User stories for your App.
-![User Journey](user_journey.png)
-USER STORIES TRELLO
+![User Stories](Resources/user_stories.png)
 # 16. Provide Wireframes for your App.
 https://xd.adobe.com/spec/fa614ee9-dd7b-4463-4ec9-cb0a730f9c2d-8c50/
 # 17.Describe the way tasks are allocated and tracked in your project.
