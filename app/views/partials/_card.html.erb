@@ -15,8 +15,9 @@
     </div>
     <div class="card-action">
       <%= link_to "#{profile.name.capitalize}'s Profile", profile %>
-      <% if current_user != nil %>
-        |  <%= link_to "Message", new_profile_message_path(profile, :id => profile.id) %>
+      <% if user_signed_in? && current_user.profile != nil %>
+        <div class="divider"></div>
+        <%= link_to "Message #{profile.name.capitalize}", new_profile_message_path(profile, :id => profile.id) %>
       <% end %>
     </div>
   </div>
