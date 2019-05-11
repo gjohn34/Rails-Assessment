@@ -165,7 +165,13 @@ In regards to Messages and Conversations, a Conversation Model will have one sen
 # 15. Provide User stories for your App.
 ![User Stories](Resources/user_stories.png)
 # 16. Provide Wireframes for your App.
+Link to Desktop Wireframe, am unable to link more than 1 layout.
 https://xd.adobe.com/spec/fa614ee9-dd7b-4463-4ec9-cb0a730f9c2d-8c50/
+![Wireframe Ipad](Resources/wireframe_ipad.png)
+Wireframe for Ipad
+![Wireframe Mobile](Resources/wireframe_mobile.png)
+Wireframe for Mobile
+
 # 17.Describe the way tasks are allocated and tracked in your project.
 See question 18.
 # 18.Discuss how Agile methodology is being implemented in your project.
