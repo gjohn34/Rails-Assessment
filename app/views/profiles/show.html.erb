@@ -72,6 +72,7 @@
 <!--  <div class='col photos'>-->
 
 <!--  </div>-->
+<% if user_signed_in? %>
   <div class="carousel-container">
     <h4><%= @profile.name %>'s Photos</h4>
     <%= link_to "#{@profile.name}'s Photos", profile_photos_path(@profile) %>
@@ -83,4 +84,6 @@
       <% end %>
     </div>
   </div>
-</div>
+  <% else %>
+  <h4 class='center'>Sign in to see more good stuff!</h4>
+<% end %>
