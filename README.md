@@ -43,7 +43,7 @@ See question requesting User Stories
 ![User Journey](Resources/user_journey.png)
 
 #### Wireframes
-See question requesting WireFrame
+See question requesting Wire Frames
 
 #### Database Entity Relationship Diagrams
 ![Database Design](Resources/database_design.png)
@@ -170,14 +170,14 @@ https://xd.adobe.com/spec/fa614ee9-dd7b-4463-4ec9-cb0a730f9c2d-8c50/
 See question 18.
 # 18.Discuss how Agile methodology is being implemented in your project.
 In our project plan, we organized tasks based on individual strengths and delegated small chunks of tasks to be implemented and completed within an appropriate time. Larger features were broken down and implemented in smaller steps.
-After working on a task, if the scope or difficulty of the task was greater than initally expected we would review the importance of the feature and decide if we would need to allocate more time to research and implementation or drop the feature for future development. An example of this happening is implementing the Messaging feature between Profiles; setting up the feature and seeing ones own messages was simple enough but breaking up the database to have individual conversations between users was deemed too difficult to implement so the design was changed to drop that individual messaging functionality in lieu of just being able to see your inbox.
+After working on a task, if the scope or difficulty of the task was greater than initially expected we would review the importance of the feature and decide if we would need to allocate more time to research and implementation or drop the feature for future development. An example of this happening is implementing the Messaging feature between Profiles; setting up the feature and seeing ones own messages was simple enough but breaking up the database to have individual conversations between users was deemed too difficult to implement so the design was changed to drop that individual messaging functionality in lieu of just being able to see your inbox.
 # 19.Provide an overview and description of your Source control process.
-After creating a new rails project it was pushed to GitHub and shared with the other members of the team. During each feature sprint that each user worked on, a branch was created to work on that feature. After it was deemed complete the branch pulled the master to pull other work from other users and merged with the local master then pushed back up to Github if there was no conflicts. As each member was delegated tasks based on their proficiency with certain functions there was no pull request and review from the other team members.
+After creating a new rails project it was pushed to GitHub and shared with the other members of the team. During each feature sprint that each user worked on, a branch was created to work on that feature. After it was deemed complete the branch pulled the master to pull other work from other users and merged with the local master then pushed back up to GitHub if there was no conflicts. As each member was delegated tasks based on their proficiency with certain functions there was no pull request and review from the other team members.
 # 20.Provide an overview and description of your Testing process.
-In our application, we tried to implement system testing using capybara integration testing eg User ‘clicks’ a certain link that takes them to a certain path then fills out ‘form id’ with certain information then validates the existance of that data, or User logs in with their login details on the browser page and we validate their successful login; unfortunately we had difficulties with dependencies that were no longer supported or unable to be successfully installed without data corruptions.
-In place of proper integration system tests we stuck with with simple model and controller tests for validation of existing fields and ensuring that defined paths were correct. For the tests that refused to install properly we would have to manually input the data into our forms and manually visit all links to ensure they worked.
+In our application, we tried to implement system testing using capybara integration testing eg User ‘clicks’ a certain link that takes them to a certain path then fills out ‘form id’ with certain information then validates the existence of that data, or User logs in with their login details on the browser page and we validate their successful login; unfortunately we had difficulties with dependencies that were no longer supported or unable to be successfully installed without data corruptions.
+In place of proper integration system tests we stuck with simple model and controller tests for validation of existing fields and ensuring that defined paths were correct. For the tests that refused to install properly we would have to manually input the data into our forms and manually visit all links to ensure they worked.
 In a perfect world, these tests would of functioned properly so we could spend less time testing and more time building.
-# 21. Discuss and analyse requirements related to information system security.
+# 21. Discuss and analyze requirements related to information system security.
 C: Meets P with specific mention of requirements for this project, such as user authentication and protection of sensitive information
 D: Meets CR with discussion of alternative options for information security and benefits/tradeoffs of each
 HD: Meets D with evidence that the best option for information security was chosen
@@ -185,7 +185,7 @@ HD: Meets D with evidence that the best option for information security was chos
 
 To protect user information it is essential that every request is authenticated, the first point of security to look at is sessions. Rather than have users reenter their details for each request, their username and password are stored in a session hash.
 To avoid session information in cookies being sniffed, forcing SSL on the server ensures that a secure connection is made between the host and user.
-Including a “log out” button ensures the the user has an easy to locate way to end the session and prevent others from using their account.
+Including a “log out” button ensures the user has an easy to locate way to end the session and prevent others from using their account.
 
 # 22. Discuss methods you will use to protect information and data..
 C: Meets P with specific design for implementing basic user login authentication for this project:
