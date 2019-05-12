@@ -6,7 +6,7 @@
     <p>We couldn't find anyone who is interested in that :( </p>
   <% else %>
     <% @profiles.each do |p| %>
-      <% if current_user.profile == nil || profile.id != current_user.profile.id %>
+      <% if current_user.profile == nil || p.id != current_user.profile.id %>
         <%= render partial: 'partials/card', locals: {profile: p} %>
       <% end %>
     <% end %>
