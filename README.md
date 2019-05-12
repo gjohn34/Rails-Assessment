@@ -130,7 +130,7 @@ When the application is deployed to Heroku, a database.yml file is automatically
 As this application is build in Ruby on Rails, the application follows an MVC architecture. To maintain a separation of concerns, our code and logic is encapsulated into separate and isolated segments.
 When a user visits a static page on our website, a GET request is made to our Router, this router will send that request to the appropriate controller and that controller will render the appropriate view for the site user. When a query to the database is made, eg loading a profile's picture the controller will make a request to the model that holds the information and the model makes that information available on the view to render for the user.
 # 9. Explain the different high-level components (abstractions) in your App.
-In our application, our abstractions  
+See questions 9, 10, & 22.
 # 10. Detail any third party services that your App will use.
 This application relies on a number of third party services to function correctly. A number of these services are ruby gems, these services are:
 Materialize - This gem is responsible for compiling the Material Design language by Google to be available in the HTML & CSS, the purpose of this service is to allow for a more familiar user experience across different applications.
@@ -184,22 +184,13 @@ In our application, we tried to implement system testing using capybara integrat
 In place of proper integration system tests we stuck with simple model and controller tests for validation of existing fields and ensuring that defined paths were correct. For the tests that refused to install properly we would have to manually input the data into our forms and manually visit all links to ensure they worked.
 In a perfect world, these tests would of functioned properly so we could spend less time testing and more time building.
 # 21. Discuss and analyze requirements related to information system security.
-C: Meets P with specific mention of requirements for this project, such as user authentication and protection of sensitive information
-D: Meets CR with discussion of alternative options for information security and benefits/tradeoffs of each
-HD: Meets D with evidence that the best option for information security was chosen
-
-
-To protect user information it is essential that every request is authenticated, the first point of security to look at is sessions. Rather than have users reenter their details for each request, their username and password are stored in a session hash.
-To avoid session information in cookies being sniffed, forcing SSL on the server ensures that a secure connection is made between the host and user.
-Including a “log out” button ensures the user has an easy to locate way to end the session and prevent others from using their account.
-
+See question 22.
 # 22. Discuss methods you will use to protect information and data..
-C: Meets P with specific design for implementing basic user login authentication for this project:
-I can’t really answer the C criteria - Aaron
-
-Using Devise?
-D: Meets CR with discussion of alternative options for protecting information and data and benefits/tradeoffs of each:
-
+To protect user data it is essential that every request is authenticated, the first point of security to look at is sessions. Rather than have users re-enter their details for each request, their username and password are stored in a session hash. 
+To avoid session information in cookies being sniffed, forcing SSL on the server ensures that a secure connection is made between the host and user. 
+Including a “log out” button ensures the the user has an easy to locate way to end the session and prevent others from using their account.
+As Rails includes the authenticity token, submitted forms are validated before database modification can occur. 
+We used devise to authenticate users via email and password login. The password is encrypted as an added layer of security.  Profile editing is restricted by comparing the current logged in user id against that of the profile they are viewing. In addition, if the user is not logged in while viewing a profile, uploaded gallery photos are inaccessible.
 # 23. Research what your legal obligations are in relation to handling user data.
 The internet is still a relatively new technology and we’re still trying to understand the impact it has on society, many of our laws regarding technology haven’t been updated to reflect the advances. User data protection has been a conflicting issue throughout the growth and monetization of the internet, and has resulted in laws created to protect users in various countries. The most notable effort is the GDPR in the EU, which has inevitably had a global impact as it applies to not only EU based companies but those that offer goods and services there - i.e Facebook.
 Although there is a Privacy Act in Australia, it doesn’t place as many restrictions on companies as the GDPR. For example, the Privacy Act has a $2.1 million fine for breaching and includes a small business exclusion under certain circumstances, whereas the GDPR fine is €20 million or roughly 4% of their total worldwide annual turnover.
