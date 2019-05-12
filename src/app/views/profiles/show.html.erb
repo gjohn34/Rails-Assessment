@@ -5,13 +5,7 @@
   <div class="col s12 m12 l6 bio-box "> <!-- style class to be clear:left -->
     <h4 class='black-text'>A little about me...</h4>
     <p class="black-text"><%= @profile.bio %></p>
-    <% if user_signed_in? %>
-      <% if current_user.profile != nil %>
-        <% if current_user.profile.id == @profile.user_id %>
-          <%= link_to "Edit Bio", edit_profile_path(@profile) %>
-          <% end %>
-      <% end %>
-    <% end %>
+    <%= show_user_buttons(link_to "Edit Bio", edit_profile_path(@profile)) %>
   </div>
   <div class="col s12 m12 l6 bio-box ">
     <h4>Interest Stuff</h4>
@@ -25,44 +19,30 @@
         </div>
       <% end %>
     </div>
-    <% if user_signed_in? %>
-      <% if current_user.profile != nil %>
-        <% if current_user.profile.id == @profile.id %>
-          <%= link_to "Edit Interests", profile_interests_path(@profile) %>
-        <% end %>
-      <% end %>
-    <% end %>
+    <%= show_user_buttons(link_to "Edit Interests", profile_interests_path(@profile)) %>
   </div>
   <div class="col s12 m12 l6 bio-box superduperleft">
-    <% if user_signed_in? %>
-      <% if current_user.profile != nil %>
-        <% if current_user.profile.id == @profile.user_id %>
-          <h4>Mailbox</h4>
-          <%= link_to "Inbox", profile_messages_path(@profile) %>
-        <% end %>
-      <% end %>
+    <% if user_signed_in? && current_user.profile != nil && current_user.profile.id == @profile.user_id %>
+      <h4>Mailbox</h4>
+      <%= link_to "Inbox", profile_messages_path(@profile) %>
     <% end %>
   </div>
   <div class="col s12 m12 l6 bio-box">
-    <% if user_signed_in? %>
-      <% if current_user.profile != nil %>
-        <% if current_user.id == @profile.user_id %>
-          <h4>Who Likes Me?</h4>
-          <% @likes.each do |key, value| %>
-            <% if !@profile.likes.any? {|p| p.profile_id == value.id} %>
-              <div class='row'>
-                <div class="col s2">
-                  <%= image_tag value.avatar_small, :class => 'circle' %>
-                </div>
-                <div class="col s10 valign-wrapper">
-                  <p><%= value.name %>
-                    <%= form_for @profile, url: {action: "update_likes", controller: "profiles", params: {:id => value.id}}, :method => :POST do |f| %>
-                      <%= f.submit "Like Back" %>
-                    <% end %></p>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
+    <% if user_signed_in? && current_user.profile != nil && current_user.id == @profile.user_id %>
+      <h4>Who Likes Me?</h4>
+      <% @likes.each do |key, value| %>
+        <% if !@profile.likes.any? {|p| p.profile_id == value.id} %>
+          <div class='row'>
+            <div class="col s2">
+              <%= image_tag value.avatar_small, :class => 'circle' %>
+            </div>
+            <div class="col s10 valign-wrapper">
+              <p><%= value.name %>
+                <%= form_for @profile, url: {action: "update_likes", controller: "profiles", params: {:id => value.id}}, :method => :POST do |f| %>
+                  <%= f.submit "Like Back" %>
+                <% end %></p>
+            </div>
+          </div>
         <% end %>
       <% end %>
     <% end %>
@@ -72,15 +52,22 @@
 <!--  <div class='col photos'>-->
 
 <!--  </div>-->
-  <div class="carousel-container">
-    <h4><%= @profile.name %>'s Photos</h4>
-    <%= link_to "#{@profile.name}'s Photos", profile_photos_path(@profile) %>
-    <div class='carousel'>
-      <% @profile.photos.each do |photo| %>
-        <div class="carousel-item">
-            <%= image_tag photo, :class => 'materialboxed' %>
-        </div>
-      <% end %>
+<% if user_signed_in? %>
+  <% if current_user.profile != nil %>
+    <div class="carousel-container">
+      <h4><%= @profile.name %>'s Photos</h4>
+      <%= link_to "#{@profile.name}'s Photos", profile_photos_path(@profile) %>
+      <div class='carousel'>
+        <% @profile.photos.each do |photo| %>
+          <div class="carousel-item">
+              <%= image_tag photo, :class => 'materialboxed' %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
-</div>
+    <% else %>
+      <h4 class='center'><%= link_to "Create your profile to see more good stuff!", new_profile_path %></h4>
+    <% end %>
+  <% else %>
+  <h4 class='center'><%= link_to "Sign in to see more good stuff!", new_user_session_path %></h4>
+<% end %>

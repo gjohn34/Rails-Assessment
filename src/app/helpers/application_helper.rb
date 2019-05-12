@@ -13,4 +13,11 @@ module ApplicationHelper
   def resource_class
     devise_mapping.to
   end
+
+  def show_user_buttons(link)
+    if user_signed_in? && current_user.profile != nil && current_user.profile.user_id == @profile.user_id
+      link
+    end
+  end
+
 end

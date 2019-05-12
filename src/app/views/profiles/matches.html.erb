@@ -1,6 +1,6 @@
 <h4>My Matches</h4>
-<% if @my_likes.empty? || @profiles.nil? %>
-  <p>Brrrr its chilly in here</p>
+<% if @profiles.empty? || @profiles.length == 0 %>
+  <p>Brrrr its chilly in here.</p>
 <% else %>
   <% @my_likes.each do |like| %>
     <% @profiles.each do |profile| %>

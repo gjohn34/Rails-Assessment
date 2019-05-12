@@ -9,14 +9,10 @@
         <% end %>
       </div>
       <div class="col s12 m12 like">
-        <% if user_signed_in? %>
-          <% if current_user.profile != nil %>
-            <% if current_user.profile.id != @profile.id %>
-              <% if !current_user.profile.likes.any? {|p| p.profile_id == @profile.id} %>
-                <%= form_for @profile, url: {action: "update_likes", controller: "profiles", params: {:id => @profile.id}}, :method => :POST do |f| %>
-                  <%= f.submit "I Like This" %>
-                <% end %>
-              <% end %>
+        <% if user_signed_in? && current_user.profile != nil && current_user.profile.user_id != @profile.id %>
+          <% if !current_user.profile.likes.any? {|p| p.profile_id == @profile.id} %>
+            <%= form_for @profile, url: {action: "update_likes", controller: "profiles", params: {:id => @profile.id}}, :method => :POST do |f| %>
+              <%= f.submit "I Like This" %>
             <% end %>
           <% end %>
         <% end %>

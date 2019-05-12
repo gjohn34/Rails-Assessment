@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
   def index
     #find all messages that belong to current_user
     @messages = Message.where(profile_id: current_user.profile.id)
+    @profile = Profile.find(current_user.profile.id)
   end
 
   def new

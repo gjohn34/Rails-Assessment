@@ -1,11 +1,13 @@
 <%= provide(:active, "container") %>
 <%= provide(:banner, 'profiles/banner') %>
   <h4><%= @profile.name %>'s Photos</h4>
-  <% if @profile.id == current_user.profile.id %>
-    <%= simple_form_for @profile do |f| %>
-      <%= f.file_field :photos, multiple: true %>
-      <br>
-      <%= f.submit 'Save', class: "waves-effect waves-light btn"  %>
+  <% if user_signed_in? && current_user.profile != nil %>
+    <% if @profile.id == current_user.profile.id %>
+      <%= simple_form_for @profile do |f| %>
+        <%= f.file_field :photos, multiple: true %>
+        <br>
+        <%= f.submit 'Save', class: "waves-effect waves-light btn"  %>
+      <% end %>
     <% end %>
   <% end %>
   <%= link_to "Back", profile_path(@profile) %>
