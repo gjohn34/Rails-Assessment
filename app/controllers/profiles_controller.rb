@@ -51,6 +51,8 @@ class ProfilesController < ApplicationController
   end
 
   def update
+    @profile = Profile.friendly.find(params[:profile_id])
+
     if @profile.update(profile_params)
       redirect_to profile_path(@profile)
     else
