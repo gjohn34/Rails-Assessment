@@ -9,7 +9,7 @@
         <% if profile.bio.empty? %>
           I am <%= profile.name %>
         <% else %>
-          <%= profile.bio %>
+          <%= profile.bio.truncate(42) %>
         <% end %>
       </p>
     </div>
