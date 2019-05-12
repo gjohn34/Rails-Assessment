@@ -52,7 +52,7 @@
 <!--  <div class='col photos'>-->
 
 <!--  </div>-->
-<% if user_signed_in? && current_user.profile != nil %>
+<% if user_signed_in?%>
   <% if current_user.profile != nil %>
     <div class="carousel-container">
       <h4><%= @profile.name %>'s Photos</h4>
