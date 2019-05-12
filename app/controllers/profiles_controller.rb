@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   #authenticate_user only on the new and edit methods
   before_action :authenticate_user!, only:[:new, :edit]
-  before_action :set_profile, only: [:show, :edit, :update, :update_interests, :update_likes]
+  before_action :set_profile, only: [:show, :edit, :update, :update_likes]
 
   def index
     #find all profiles on the root path, if user has a profile theirs is excluded from the results
@@ -51,7 +51,6 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @profile = Profile.friendly.find(params[:profile_id])
 
     if @profile.update(profile_params)
       redirect_to profile_path(@profile)
@@ -63,6 +62,7 @@ class ProfilesController < ApplicationController
   def update_interests
     #empty array is created then for each of the selected inputs they are added
     #to the profile
+    @profile = Profile.friendly.find(params[:profile_id])
     @profile.interests = []
     params[:interests].each do |i|
       @profile.interests.push(Interest.find(i))
